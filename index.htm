@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E😎%3C/text%3E%3C/svg%3E">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UV-Vision · Sunglasses Guide</title>
-    <!-- Favicon με emoji γυαλιών ηλίου -->
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E😎%3C/text%3E%3C/svg%3E">
+    <title>UV-Vision - Sunglasses Guide</title>
     <style>
         * {
             margin: 0;
@@ -26,7 +25,6 @@
             margin: 0 auto;
         }
 
-        /* Κουμπί γλώσσας */
         .lang-switch {
             display: flex;
             justify-content: flex-end;
@@ -47,7 +45,6 @@
             background: #d1d1d6;
         }
 
-        /* Κουμπί τύπων */
         .types-btn {
             background: #0071e3;
             color: white;
@@ -261,7 +258,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- Γραμμή με κουμπί γλώσσας -->
         <div class="lang-switch">
             <button id="langToggle" class="lang-btn">EN</button>
         </div>
@@ -270,7 +266,6 @@
         <h1>Βρες τα ιδανικά γυαλιά</h1>
         <div id="subhead" class="subhead">Επιλεγμένα για άτομα με ευαισθησία στο φως και στραβισμό</div>
 
-        <!-- Grid καρτών -->
         <div id="gridContainer" class="grid"></div>
 
         <div id="footerNote" class="footer-note">* Τα links οδηγούν σε ενδεικτικές αναζητήσεις. Πάντα να συμβουλεύεστε ειδικό.</div>
@@ -295,7 +290,6 @@
     </div>
 
     <script>
-        // ---------- Δεδομένα για τις κάρτες (δίγλωσσα) ----------
         const cardData = [
             {
                 title: "Polarized Aviator",
@@ -389,7 +383,6 @@
             }
         ];
 
-        // Δεδομένα για το modal τύπων (λίστα)
         const typesData = [
             { term: { el: "Polarized (Πολωτικά)", en: "Polarized" }, desc: { el: "Μειώνουν την αντανάκλαση, ιδανικά για οδήγηση και έντονο φως.", en: "Reduce glare, ideal for driving and bright light." } },
             { term: { el: "Wrap-around", en: "Wrap-around" }, desc: { el: "Προστατεύουν από το πλάγιο φως, κατάλληλα για σπορ.", en: "Protect from side light, suitable for sports." } },
@@ -399,55 +392,46 @@
             { term: { el: "Prism (Πρισματικά)", en: "Prism" }, desc: { el: "Βοηθούν στη διόρθωση στραβισμού.", en: "Help correct strabismus." } }
         ];
 
-        // Στατικά κείμενα
         const translations = {
-            typesBtn: {
-                el: "👓 Τύποι Γυαλιών",
-                en: "👓 Glasses Types"
-            },
-            subhead: {
-                el: "Επιλεγμένα για άτομα με ευαισθησία στο φως και στραβισμό",
-                en: "Selected for people with light sensitivity and strabismus"
-            },
-            footerNote: {
-                el: "* Τα links οδηγούν σε ενδεικτικές αναζητήσεις. Πάντα να συμβουλεύεστε ειδικό.",
-                en: "* Links lead to indicative searches. Always consult a specialist."
-            },
-            typesModalTitle: {
-                el: "Τύποι Γυαλιών",
-                en: "Glasses Types"
-            },
-            closeBtn: {
-                el: "Κλείσιμο",
-                en: "Close"
-            },
-            moreInfoBtn: {
-                el: "More Info",
-                en: "More Info"
-            }
+            typesBtn: { el: "👓 Τύποι Γυαλιών", en: "👓 Glasses Types" },
+            subhead: { el: "Επιλεγμένα για άτομα με ευαισθησία στο φως και στραβισμό", en: "Selected for people with light sensitivity and strabismus" },
+            footerNote: { el: "* Τα links οδηγούν σε ενδεικτικές αναζητήσεις. Πάντα να συμβουλεύεστε ειδικό.", en: "* Links lead to indicative searches. Always consult a specialist." },
+            typesModalTitle: { el: "Τύποι Γυαλιών", en: "Glasses Types" },
+            closeBtn: { el: "Κλείσιμο", en: "Close" },
+            moreInfoBtn: { el: "More Info", en: "More Info" }
         };
 
-        let currentLang = 'el'; // αρχική γλώσσα
+        let currentLang = 'el';
 
-        // Συνάρτηση για κλείσιμο modal
         window.closeModal = function(modalId) {
             document.getElementById(modalId).style.display = 'none';
         };
 
-        // Άνοιγμα modal more info
+        // ΔΙΟΡΘΩΜΕΝΗ ΣΥΝΑΡΤΗΣΗ openInfoModal
         function openInfoModal(title, text) {
-            document.getElementById('infoModalTitle').innerText = title;
-            document.getElementById('infoModalText').innerText = text;
+            if (currentLang === 'en') {
+                // Βρες την κάρτα με αυτόν τον τίτλο και πάρε την αγγλική περιγραφή
+                const card = cardData.find(c => c.title === title);
+                if (card) {
+                    document.getElementById('infoModalTitle').innerText = title;
+                    document.getElementById('infoModalText').innerText = card.moreInfo.en;
+                } else {
+                    // Fallback στο κανονικό κείμενο αν δεν βρεθεί
+                    document.getElementById('infoModalTitle').innerText = title;
+                    document.getElementById('infoModalText').innerText = text;
+                }
+            } else {
+                document.getElementById('infoModalTitle').innerText = title;
+                document.getElementById('infoModalText').innerText = text;
+            }
             document.getElementById('infoModal').style.display = 'flex';
         }
 
-        // Άνοιγμα modal τύπων
         function openTypesModal() {
             renderTypesModalContent(currentLang);
             document.getElementById('typesModal').style.display = 'flex';
         }
 
-        // Γέμισμα modal τύπων ανάλογα με γλώσσα
         function renderTypesModalContent(lang) {
             const list = document.getElementById('typesList');
             list.innerHTML = '';
@@ -458,13 +442,10 @@
                 list.appendChild(li);
             });
             document.getElementById('typesModalTitle').innerText = translations.typesModalTitle[lang];
-            // Αλλάζουμε και το κείμενο του κουμπιού κλεισίματος (υπάρχει ήδη onclick)
-            // Αλλά το κουμπί έχει σταθερό κείμενο, το αλλάζουμε
             const closeBtn = document.querySelector('#typesModal .close-modal');
             if (closeBtn) closeBtn.innerText = translations.closeBtn[lang];
         }
 
-        // Συνάρτηση για render των καρτών
         function renderGrid(lang) {
             const grid = document.getElementById('gridContainer');
             grid.innerHTML = '';
@@ -489,27 +470,22 @@
             });
         }
 
-        // Ενημέρωση όλων των στατικών κειμένων
         function updateStaticTexts(lang) {
             document.getElementById('typesBtn').innerText = translations.typesBtn[lang];
             document.getElementById('subhead').innerText = translations.subhead[lang];
             document.getElementById('footerNote').innerText = translations.footerNote[lang];
-            // Κουμπί γλώσσας
             document.getElementById('langToggle').innerText = lang === 'el' ? 'EN' : 'ΕΛ';
         }
 
-        // Κεντρική συνάρτηση αλλαγής γλώσσας
         function switchLanguage() {
             currentLang = currentLang === 'el' ? 'en' : 'el';
             updateStaticTexts(currentLang);
             renderGrid(currentLang);
-            renderTypesModalContent(currentLang); // προαιρετικά, αν το modal είναι ανοιχτό θα ανανεωθεί όταν ανοίξει
-            // Κλείνουμε τυχόν ανοιχτά modal
+            renderTypesModalContent(currentLang);
             closeModal('typesModal');
             closeModal('infoModal');
         }
 
-        // Αρχικοποίηση
         document.addEventListener('DOMContentLoaded', () => {
             renderGrid('el');
             renderTypesModalContent('el');
@@ -517,7 +493,6 @@
             document.getElementById('langToggle').addEventListener('click', switchLanguage);
         });
 
-        // Κλείσιμο modal αν κάνει κλικ έξω
         window.onclick = function(event) {
             const typesModal = document.getElementById('typesModal');
             const infoModal = document.getElementById('infoModal');
