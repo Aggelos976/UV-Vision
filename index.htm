@@ -17,7 +17,6 @@
             color: #1d1d1f;
             line-height: 1.5;
             padding: 40px 20px;
-            position: relative;
         }
 
         .container {
@@ -25,7 +24,6 @@
             margin: 0 auto;
         }
 
-        /* Κουμπί τύπων */
         .types-btn {
             background: #0071e3;
             color: white;
@@ -78,10 +76,6 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.05);
             transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             border: 1px solid rgba(255,255,255,0.5);
-            cursor: pointer;
-            text-decoration: none;
-            color: inherit;
-            display: block;
             animation: fadeUp 0.6s ease forwards;
             opacity: 0;
         }
@@ -134,21 +128,46 @@
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 500;
-            margin-right: 8px;
+            margin-bottom: 16px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .amazon-btn {
+            flex: 1;
+            background: #ff9900;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .amazon-btn:hover {
+            background: #ffac33;
         }
 
         .more-info-btn {
+            flex: 1;
             background: transparent;
             border: 2px solid #0071e3;
             color: #0071e3;
-            padding: 8px 16px;
+            padding: 8px;
             border-radius: 30px;
             font-size: 0.9rem;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s;
-            margin-top: 12px;
-            width: 100%;
         }
 
         .more-info-btn:hover {
@@ -195,25 +214,10 @@
             color: #1d1d1f;
         }
 
-        .modal-content ul {
-            list-style: none;
-        }
-
-        .modal-content li {
+        .modal-content p {
             margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #e5e5e5;
-        }
-
-        .modal-content li:last-child {
-            border-bottom: none;
-        }
-
-        .modal-content strong {
-            font-size: 1.2rem;
-            display: block;
-            margin-bottom: 5px;
-            color: #0071e3;
+            color: #4a4a4e;
+            line-height: 1.6;
         }
 
         .close-modal {
@@ -247,7 +251,7 @@
 </head>
 <body>
     <div class="container">
-        <button class="types-btn" onclick="openModal()">👓 Τύποι Γυαλιών</button>
+        <button class="types-btn" onclick="openTypesModal()">👓 Τύποι Γυαλιών</button>
         <h1>Βρες τα ιδανικά γυαλιά</h1>
         <div class="subhead">Επιλεγμένα για άτομα με ευαισθησία στο φως και στραβισμό</div>
 
@@ -261,7 +265,10 @@
                 </div>
                 <div class="card-desc">Φακοί πολωτικοί, 100% UV προστασία, ιδανικοί για φωτοευαισθησία.</div>
                 <span class="card-badge">Best Seller</span>
-                <button class="more-info-btn" onclick="window.open('https://www.amazon.com/s?k=polarized+sunglasses', '_blank')">More Info</button>
+                <div class="button-group">
+                    <a href="https://www.amazon.com/s?k=polarized+sunglasses" target="_blank" class="amazon-btn">Amazon</a>
+                    <button class="more-info-btn" onclick='openInfoModal("Polarized Aviator", "Οι πολωτικοί φακοί μειώνουν την αντανάκλαση από επιφάνειες όπως νερό, χιόνι και δρόμοι. Είναι ιδανικοί για οδήγηση και υπαίθριες δραστηριότητες. Προσφέρουν 100% UV προστασία και βελτιώνουν την αντίθεση χρωμάτων.")'>More Info</button>
+                </div>
             </div>
 
             <!-- Κάρτα 2 -->
@@ -273,7 +280,10 @@
                 </div>
                 <div class="card-desc">Πλήρης προστασία από πλάγιο φως, κατάλληλα για έντονη δραστηριότητα.</div>
                 <span class="card-badge">Sport</span>
-                <button class="more-info-btn" onclick="window.open('https://www.amazon.com/s?k=wrap+around+sunglasses', '_blank')">More Info</button>
+                <div class="button-group">
+                    <a href="https://www.amazon.com/s?k=wrap+around+sunglasses" target="_blank" class="amazon-btn">Amazon</a>
+                    <button class="more-info-btn" onclick='openInfoModal("Wrap Around Sport", "Τα wrap-around γυαλιά εφαρμόζουν στενά στο πρόσωπο και προστατεύουν από το φως που μπαίνει από τα πλάγια. Είναι ιδανικά για σπορ, ποδηλασία και δραστηριότητες σε έντονο ήλιο. Συχνά έχουν αντιθαμβωτική επικάλυψη.")'>More Info</button>
+                </div>
             </div>
 
             <!-- Κάρτα 3 -->
@@ -285,7 +295,10 @@
                 </div>
                 <div class="card-desc">Για όσους φορούν ήδη διορθωτικά γυαλιά. Μαγνητικό κλιπ.</div>
                 <span class="card-badge">Οπτική</span>
-                <button class="more-info-btn" onclick="window.open('https://www.amazon.com/s?k=prescription+sunglasses', '_blank')">More Info</button>
+                <div class="button-group">
+                    <a href="https://www.amazon.com/s?k=prescription+sunglasses" target="_blank" class="amazon-btn">Amazon</a>
+                    <button class="more-info-btn" onclick='openInfoModal("Prescription Clip‑on", "Τα clip-on γυαλιά ηλίου προσαρτώνται μαγνητικά πάνω στα κανονικά σας διορθωτικά γυαλιά. Είναι μια οικονομική λύση για όσους δεν θέλουν να αγοράσουν ξεχωριστά γυαλιά ηλίου με συνταγή. Διατίθενται σε διάφορα σχήματα.")'>More Info</button>
+                </div>
             </div>
 
             <!-- Κάρτα 4 -->
@@ -297,7 +310,10 @@
                 </div>
                 <div class="card-desc">Μείωση της αντανάκλασης και του μπλε φωτός, ιδανικά για οθόνες.</div>
                 <span class="card-badge">Ψηφιακή άνεση</span>
-                <button class="more-info-btn" onclick="window.open('https://www.amazon.com/s?k=blue+blocking+sunglasses', '_blank')">More Info</button>
+                <div class="button-group">
+                    <a href="https://www.amazon.com/s?k=blue+blocking+sunglasses" target="_blank" class="amazon-btn">Amazon</a>
+                    <button class="more-info-btn" onclick='openInfoModal("Blue Blocker", "Οι φακοί blue blocker φιλτράρουν το μπλε φως που εκπέμπουν οι οθόνες (υπολογιστές, κινητά, tablet). Μειώνουν την καταπόνηση των ματιών και βελτιώνουν την ποιότητα ύπνου. Ιδανικοί για άτομα που περνούν πολλές ώρες μπροστά σε οθόνες.")'>More Info</button>
+                </div>
             </div>
 
             <!-- Κάρτα 5 -->
@@ -309,7 +325,10 @@
                 </div>
                 <div class="card-desc">Προσαρμόζονται αυτόματα στο φως. Ιδανικά για μεταβαλλόμενες συνθήκες.</div>
                 <span class="card-badge">Έξυπνα</span>
-                <button class="more-info-btn" onclick="window.open('https://www.amazon.com/s?k=photochromic+sunglasses', '_blank')">More Info</button>
+                <div class="button-group">
+                    <a href="https://www.amazon.com/s?k=photochromic+sunglasses" target="_blank" class="amazon-btn">Amazon</a>
+                    <button class="more-info-btn" onclick='openInfoModal("Photochromic", "Οι φωτοχρωμικοί φακοί σκουραίνουν αυτόματα όταν εκτίθενται στο ηλιακό φως και ανοίγουν σε εσωτερικούς χώρους. Προσφέρουν συνεχή προστασία UV και άνεση χωρίς να χρειάζεται να αλλάζετε γυαλιά. Ιδανικοί για άτομα που μετακινούνται συχνά μεταξύ εσωτερικού και εξωτερικού.")'>More Info</button>
+                </div>
             </div>
 
             <!-- Κάρτα 6 -->
@@ -321,7 +340,10 @@
                 </div>
                 <div class="card-desc">Ειδικά σχεδιασμένα για άτομα με στραβισμό. Συμβουλευτείτε οπτικό.</div>
                 <span class="card-badge">Ιατρικά</span>
-                <button class="more-info-btn" onclick="window.open('https://www.amazon.com/s?k=strabismus+glasses', '_blank')">More Info</button>
+                <div class="button-group">
+                    <a href="https://www.amazon.com/s?k=strabismus+glasses" target="_blank" class="amazon-btn">Amazon</a>
+                    <button class="more-info-btn" onclick='openInfoModal("Prism Glasses", "Τα πρισματικά γυαλιά χρησιμοποιούν ειδικούς φακούς που αλλάζουν την κατεύθυνση του φωτός που μπαίνει στο μάτι. Βοηθούν στη διόρθωση του στραβισμού (αλλοιθώρισμα) και της διπλής όρασης. Πρέπει να συνταγογραφούνται από οφθαλμίατρο.")'>More Info</button>
+                </div>
             </div>
         </div>
 
@@ -330,36 +352,55 @@
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal για Τύπους Γυαλιών -->
     <div id="typesModal" class="modal">
         <div class="modal-content">
             <h2>Τύποι Γυαλιών</h2>
-            <ul>
-                <li><strong>Polarized (Πολωτικά)</strong> Μειώνουν την αντανάκλαση, ιδανικά για οδήγηση και έντονο φως.</li>
-                <li><strong>Wrap-around</strong> Προστατεύουν από το πλάγιο φως, κατάλληλα για σπορ.</li>
-                <li><strong>Prescription (Με συνταγή)</strong> Γυαλιά ηλίου με διορθωτικούς φακούς.</li>
-                <li><strong>Blue-blocking</strong> Φιλτράρουν το μπλε φως, καλά για οθόνες.</li>
-                <li><strong>Photochromic (Φωτοχρωμικά)</strong> Σκουραίνουν αυτόματα στον ήλιο.</li>
-                <li><strong>Prism (Πρισματικά)</strong> Βοηθούν στη διόρθωση στραβισμού.</li>
+            <ul style="list-style: none;">
+                <li style="margin-bottom: 20px;"><strong>Polarized (Πολωτικά)</strong> - Μειώνουν την αντανάκλαση, ιδανικά για οδήγηση και έντονο φως.</li>
+                <li style="margin-bottom: 20px;"><strong>Wrap-around</strong> - Προστατεύουν από το πλάγιο φως, κατάλληλα για σπορ.</li>
+                <li style="margin-bottom: 20px;"><strong>Prescription (Με συνταγή)</strong> - Γυαλιά ηλίου με διορθωτικούς φακούς.</li>
+                <li style="margin-bottom: 20px;"><strong>Blue-blocking</strong> - Φιλτράρουν το μπλε φως, καλά για οθόνες.</li>
+                <li style="margin-bottom: 20px;"><strong>Photochromic (Φωτοχρωμικά)</strong> - Σκουραίνουν αυτόματα στον ήλιο.</li>
+                <li style="margin-bottom: 20px;"><strong>Prism (Πρισματικά)</strong> - Βοηθούν στη διόρθωση στραβισμού.</li>
             </ul>
-            <button class="close-modal" onclick="closeModal()">Κλείσιμο</button>
+            <button class="close-modal" onclick="closeModal('typesModal')">Κλείσιμο</button>
+        </div>
+    </div>
+
+    <!-- Modal για More Info -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <h2 id="infoModalTitle"></h2>
+            <p id="infoModalText"></p>
+            <button class="close-modal" onclick="closeModal('infoModal')">Κλείσιμο</button>
         </div>
     </div>
 
     <script>
-        function openModal() {
+        function openTypesModal() {
             document.getElementById('typesModal').style.display = 'flex';
         }
 
-        function closeModal() {
-            document.getElementById('typesModal').style.display = 'none';
+        function openInfoModal(title, text) {
+            document.getElementById('infoModalTitle').innerText = title;
+            document.getElementById('infoModalText').innerText = text;
+            document.getElementById('infoModal').style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
         }
 
         // Κλείσιμο modal αν κάνει κλικ έξω
         window.onclick = function(event) {
-            var modal = document.getElementById('typesModal');
-            if (event.target == modal) {
-                modal.style.display = 'none';
+            var typesModal = document.getElementById('typesModal');
+            var infoModal = document.getElementById('infoModal');
+            if (event.target == typesModal) {
+                typesModal.style.display = 'none';
+            }
+            if (event.target == infoModal) {
+                infoModal.style.display = 'none';
             }
         }
     </script>
