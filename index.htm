@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E😎%3C/text%3E%3C/svg%3E">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Οδηγός Γυαλιών · Apple Style</title>
+    <title>UV-Vision - Sunglasses Guide</title>
     <style>
         * {
             margin: 0;
@@ -220,6 +221,27 @@
             line-height: 1.6;
         }
 
+        .modal-content ul {
+            list-style: none;
+        }
+
+        .modal-content li {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .modal-content li:last-child {
+            border-bottom: none;
+        }
+
+        .modal-content strong {
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 5px;
+            color: #0071e3;
+        }
+
         .close-modal {
             background: #0071e3;
             color: white;
@@ -356,13 +378,13 @@
     <div id="typesModal" class="modal">
         <div class="modal-content">
             <h2>Τύποι Γυαλιών</h2>
-            <ul style="list-style: none;">
-                <li style="margin-bottom: 20px;"><strong>Polarized (Πολωτικά)</strong> - Μειώνουν την αντανάκλαση, ιδανικά για οδήγηση και έντονο φως.</li>
-                <li style="margin-bottom: 20px;"><strong>Wrap-around</strong> - Προστατεύουν από το πλάγιο φως, κατάλληλα για σπορ.</li>
-                <li style="margin-bottom: 20px;"><strong>Prescription (Με συνταγή)</strong> - Γυαλιά ηλίου με διορθωτικούς φακούς.</li>
-                <li style="margin-bottom: 20px;"><strong>Blue-blocking</strong> - Φιλτράρουν το μπλε φως, καλά για οθόνες.</li>
-                <li style="margin-bottom: 20px;"><strong>Photochromic (Φωτοχρωμικά)</strong> - Σκουραίνουν αυτόματα στον ήλιο.</li>
-                <li style="margin-bottom: 20px;"><strong>Prism (Πρισματικά)</strong> - Βοηθούν στη διόρθωση στραβισμού.</li>
+            <ul>
+                <li><strong>Polarized (Πολωτικά)</strong> Μειώνουν την αντανάκλαση, ιδανικά για οδήγηση και έντονο φως.</li>
+                <li><strong>Wrap-around</strong> Προστατεύουν από το πλάγιο φως, κατάλληλα για σπορ.</li>
+                <li><strong>Prescription (Με συνταγή)</strong> Γυαλιά ηλίου με διορθωτικούς φακούς.</li>
+                <li><strong>Blue-blocking</strong> Φιλτράρουν το μπλε φως, καλά για οθόνες.</li>
+                <li><strong>Photochromic (Φωτοχρωμικά)</strong> Σκουραίνουν αυτόματα στον ήλιο.</li>
+                <li><strong>Prism (Πρισματικά)</strong> Βοηθούν στη διόρθωση στραβισμού.</li>
             </ul>
             <button class="close-modal" onclick="closeModal('typesModal')">Κλείσιμο</button>
         </div>
