@@ -6,12 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UV-Vision - Sunglasses Guide</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background: #f5f5f7;
@@ -19,233 +14,76 @@
             line-height: 1.5;
             padding: 40px 20px;
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Κουμπί γλώσσας */
-        .lang-switch {
-            display: flex;
-            justify-content: flex-end;
-            margin-bottom: 20px;
-        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .lang-switch { display: flex; justify-content: flex-end; margin-bottom: 20px; }
         .lang-btn {
-            background: #e5e5e7;
-            color: #1d1d1f;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            cursor: pointer;
+            background: #e5e5e7; color: #1d1d1f; border: none; padding: 8px 16px;
+            border-radius: 30px; font-size: 0.9rem; font-weight: 500; cursor: pointer;
             transition: background 0.2s;
         }
-        .lang-btn:hover {
-            background: #d1d1d6;
-        }
-
-        /* Κουμπί τύπων */
+        .lang-btn:hover { background: #d1d1d6; }
         .types-btn {
-            background: #0071e3;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            margin-bottom: 20px;
-            transition: background 0.2s;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            background: #0071e3; color: white; border: none; padding: 12px 24px;
+            border-radius: 30px; font-size: 1rem; font-weight: 500; cursor: pointer;
+            margin-bottom: 20px; transition: background 0.2s; box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
-        .types-btn:hover {
-            background: #0077ed;
-        }
-
+        .types-btn:hover { background: #0077ed; }
         h1 {
-            font-size: 3rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            text-align: center;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #1d1d1f, #4a4a4e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 3rem; font-weight: 600; letter-spacing: -0.02em; text-align: center;
+            margin-bottom: 10px; background: linear-gradient(135deg, #1d1d1f, #4a4a4e);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
-
-        .subhead {
-            text-align: center;
-            font-size: 1.25rem;
-            color: #6e6e73;
-            margin-bottom: 50px;
-        }
-
+        .subhead { text-align: center; font-size: 1.25rem; color: #6e6e73; margin-bottom: 50px; }
         .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px; margin-top: 40px;
         }
-
         .card {
-            background: rgba(255,255,255,0.8);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 24px;
-            padding: 24px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.05);
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            border: 1px solid rgba(255,255,255,0.5);
-            animation: fadeUp 0.6s ease forwards;
-            opacity: 0;
+            background: rgba(255,255,255,0.8); backdrop-filter: blur(10px); border-radius: 24px;
+            padding: 24px; box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.5);
+            animation: fadeUp 0.6s ease forwards; opacity: 0;
         }
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 30px rgba(0,0,0,0.1), 0 4px 12px rgba(0,0,0,0.08);
-            background: white;
-        }
-
-        .card-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 16px;
-            margin-bottom: 20px;
-            transition: transform 0.3s ease;
-        }
-        .card:hover .card-img {
-            transform: scale(1.02);
-        }
-
-        .card-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .card-price {
-            font-size: 1.25rem;
-            font-weight: 500;
-            color: #0071e3;
-        }
-
-        .card-desc {
-            color: #6e6e73;
-            font-size: 0.95rem;
-            margin-bottom: 16px;
-        }
-
+        .card:hover { transform: translateY(-6px); background: white; box-shadow: 0 20px 30px rgba(0,0,0,0.1); }
+        .card-img { width: 100%; height: 200px; object-fit: cover; border-radius: 16px; margin-bottom: 20px; transition: transform 0.3s; }
+        .card:hover .card-img { transform: scale(1.02); }
+        .card-title { font-size: 1.5rem; font-weight: 600; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+        .card-price { color: #0071e3; }
+        .card-desc { color: #6e6e73; font-size: 0.95rem; margin-bottom: 16px; }
         .card-badge {
-            display: inline-block;
-            background: #0071e3;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            margin-bottom: 16px;
+            display: inline-block; background: #0071e3; color: white; padding: 4px 12px;
+            border-radius: 20px; font-size: 0.8rem; font-weight: 500; margin-bottom: 16px;
         }
-
-        .button-group {
-            display: flex;
-            gap: 10px;
-            margin-top: 12px;
-        }
+        .button-group { display: flex; gap: 10px; margin-top: 12px; }
         .amazon-btn {
-            flex: 1;
-            background: #ff9900;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background 0.2s;
-            text-decoration: none;
-            display: inline-block;
-            text-align: center;
+            flex: 1; background: #ff9900; color: white; border: none; padding: 10px;
+            border-radius: 30px; font-size: 0.9rem; font-weight: 500; cursor: pointer;
+            text-decoration: none; text-align: center;
         }
-        .amazon-btn:hover {
-            background: #ffac33;
-        }
+        .amazon-btn:hover { background: #ffac33; }
         .more-info-btn {
-            flex: 1;
-            background: transparent;
-            border: 2px solid #0071e3;
-            color: #0071e3;
-            padding: 8px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
+            flex: 1; background: transparent; border: 2px solid #0071e3; color: #0071e3;
+            padding: 8px; border-radius: 30px; font-size: 0.9rem; font-weight: 500;
+            cursor: pointer; transition: all 0.2s;
         }
-        .more-info-btn:hover {
-            background: #0071e3;
-            color: white;
-        }
-
-        .footer-note {
-            text-align: center;
-            margin-top: 60px;
-            color: #8e8e93;
-            font-size: 0.9rem;
-        }
-
-        /* Modal */
+        .more-info-btn:hover { background: #0071e3; color: white; }
+        .footer-note { text-align: center; margin-top: 60px; color: #8e8e93; font-size: 0.9rem; }
         .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(5px);
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); align-items: center;
+            justify-content: center; z-index: 1000;
         }
         .modal-content {
-            background: white;
-            border-radius: 30px;
-            padding: 40px;
-            max-width: 500px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-            box-shadow: 0 30px 40px rgba(0,0,0,0.2);
+            background: white; border-radius: 30px; padding: 40px; max-width: 500px;
+            width: 90%; max-height: 80vh; overflow-y: auto; box-shadow: 0 30px 40px rgba(0,0,0,0.2);
         }
-        .modal-content h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #1d1d1f;
-        }
-        .modal-content p {
-            margin-bottom: 20px;
-            color: #4a4a4e;
-            line-height: 1.6;
-        }
+        .modal-content h2 { font-size: 2rem; margin-bottom: 20px; color: #1d1d1f; }
+        .modal-content p { margin-bottom: 20px; color: #4a4a4e; line-height: 1.6; }
         .close-modal {
-            background: #0071e3;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-size: 1rem;
-            cursor: pointer;
-            margin-top: 20px;
-            width: 100%;
+            background: #0071e3; color: white; border: none; padding: 12px 24px;
+            border-radius: 30px; font-size: 1rem; cursor: pointer; margin-top: 20px; width: 100%;
         }
-        .close-modal:hover {
-            background: #0077ed;
-        }
-
+        .close-modal:hover { background: #0077ed; }
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -260,22 +98,16 @@
 </head>
 <body>
     <div class="container">
-        <!-- Γραμμή με κουμπί γλώσσας -->
         <div class="lang-switch">
             <button id="langToggle" class="lang-btn">EN</button>
         </div>
-
         <button id="typesBtn" class="types-btn">👓 Τύποι Γυαλιών</button>
         <h1>Βρες τα ιδανικά γυαλιά</h1>
         <div id="subhead" class="subhead">Επιλεγμένα για άτομα με ευαισθησία στο φως και στραβισμό</div>
-
-        <!-- Grid καρτών -->
         <div id="gridContainer" class="grid"></div>
-
         <div id="footerNote" class="footer-note">* Τα links οδηγούν σε ενδεικτικές αναζητήσεις. Πάντα να συμβουλεύεστε ειδικό.</div>
     </div>
 
-    <!-- Modal για Τύπους Γυαλιών -->
     <div id="typesModal" class="modal">
         <div class="modal-content">
             <h2 id="typesModalTitle">Τύποι Γυαλιών</h2>
@@ -284,7 +116,6 @@
         </div>
     </div>
 
-    <!-- Modal για More Info -->
     <div id="infoModal" class="modal">
         <div class="modal-content">
             <h2 id="infoModalTitle"></h2>
@@ -294,101 +125,15 @@
     </div>
 
     <script>
-        // ---------- Δεδομένα για τις κάρτες (δίγλωσσα) ----------
         const cardData = [
-            {
-                title: "Polarized Aviator",
-                price: "€89",
-                img: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400&h=300&fit=crop",
-                amazonLink: "https://www.amazon.com/s?k=polarized+sunglasses",
-                badge: { el: "Best Seller", en: "Best Seller" },
-                desc: {
-                    el: "Φακοί πολωτικοί, 100% UV προστασία, ιδανικοί για φωτοευαισθησία.",
-                    en: "Polarized lenses, 100% UV protection, ideal for photosensitivity."
-                },
-                moreInfo: {
-                    el: "Οι πολωτικοί φακοί μειώνουν την αντανάκλαση από επιφάνειες όπως νερό, χιόνι και δρόμοι. Είναι ιδανικοί για οδήγηση και υπαίθριες δραστηριότητες. Προσφέρουν 100% UV προστασία και βελτιώνουν την αντίθεση χρωμάτων.",
-                    en: "Polarized lenses reduce glare from surfaces like water, snow, and roads. They are ideal for driving and outdoor activities. They offer 100% UV protection and enhance color contrast."
-                }
-            },
-            {
-                title: "Wrap Around Sport",
-                price: "€59",
-                img: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=300&fit=crop",
-                amazonLink: "https://www.amazon.com/s?k=wrap+around+sunglasses",
-                badge: { el: "Sport", en: "Sport" },
-                desc: {
-                    el: "Πλήρης προστασία από πλάγιο φως, κατάλληλα για έντονη δραστηριότητα.",
-                    en: "Full protection from peripheral light, suitable for intense activities."
-                },
-                moreInfo: {
-                    el: "Τα wrap-around γυαλιά εφαρμόζουν στενά στο πρόσωπο και προστατεύουν από το φως που μπαίνει από τα πλάγια. Είναι ιδανικά για σπορ, ποδηλασία και δραστηριότητες σε έντονο ήλιο. Συχνά έχουν αντιθαμβωτική επικάλυψη.",
-                    en: "Wrap-around glasses fit closely to the face and block light from the sides. Ideal for sports, cycling, and activities in bright sun. Often have anti-fog coating."
-                }
-            },
-            {
-                title: "Prescription Clip‑on",
-                price: "€129",
-                img: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400&h=300&fit=crop",
-                amazonLink: "https://www.amazon.com/s?k=prescription+sunglasses",
-                badge: { el: "Οπτική", en: "Optical" },
-                desc: {
-                    el: "Για όσους φορούν ήδη διορθωτικά γυαλιά. Μαγνητικό κλιπ.",
-                    en: "For those who already wear prescription glasses. Magnetic clip-on."
-                },
-                moreInfo: {
-                    el: "Τα clip-on γυαλιά ηλίου προσαρτώνται μαγνητικά πάνω στα κανονικά σας διορθωτικά γυαλιά. Είναι μια οικονομική λύση για όσους δεν θέλουν να αγοράσουν ξεχωριστά γυαλιά ηλίου με συνταγή. Διατίθενται σε διάφορα σχήματα.",
-                    en: "Clip-on sunglasses attach magnetically to your regular prescription glasses. They are an economical solution for those who don't want to buy separate prescription sunglasses. Available in various shapes."
-                }
-            },
-            {
-                title: "Blue Blocker",
-                price: "€79",
-                img: "https://images.unsplash.com/photo-1577803645770-f5f2b2d50f9e?w=400&h=300&fit=crop",
-                amazonLink: "https://www.amazon.com/s?k=blue+blocking+sunglasses",
-                badge: { el: "Ψηφιακή άνεση", en: "Digital Comfort" },
-                desc: {
-                    el: "Μείωση της αντανάκλασης και του μπλε φωτός, ιδανικά για οθόνες.",
-                    en: "Reduces glare and blue light, ideal for screens."
-                },
-                moreInfo: {
-                    el: "Οι φακοί blue blocker φιλτράρουν το μπλε φως που εκπέμπουν οι οθόνες (υπολογιστές, κινητά, tablet). Μειώνουν την καταπόνηση των ματιών και βελτιώνουν την ποιότητα ύπνου. Ιδανικοί για άτομα που περνούν πολλές ώρες μπροστά σε οθόνες.",
-                    en: "Blue blocker lenses filter blue light emitted by screens (computers, phones, tablets). They reduce eye strain and improve sleep quality. Ideal for people who spend many hours in front of screens."
-                }
-            },
-            {
-                title: "Photochromic",
-                price: "€149",
-                img: "https://images.unsplash.com/photo-1516685018646-549d52c4a3b4?w=400&h=300&fit=crop",
-                amazonLink: "https://www.amazon.com/s?k=photochromic+sunglasses",
-                badge: { el: "Έξυπνα", en: "Smart" },
-                desc: {
-                    el: "Προσαρμόζονται αυτόματα στο φως. Ιδανικά για μεταβαλλόμενες συνθήκες.",
-                    en: "Automatically adapt to light. Ideal for changing conditions."
-                },
-                moreInfo: {
-                    el: "Οι φωτοχρωμικοί φακοί σκουραίνουν αυτόματα όταν εκτίθενται στο ηλιακό φως και ανοίγουν σε εσωτερικούς χώρους. Προσφέρουν συνεχή προστασία UV και άνεση χωρίς να χρειάζεται να αλλάζετε γυαλιά. Ιδανικοί για άτομα που μετακινούνται συχνά μεταξύ εσωτερικού και εξωτερικού.",
-                    en: "Photochromic lenses darken automatically when exposed to sunlight and clear indoors. They offer continuous UV protection and convenience without switching glasses. Ideal for people who frequently move between indoors and outdoors."
-                }
-            },
-            {
-                title: "Prism Glasses",
-                price: "Από €199",
-                img: "https://images.unsplash.com/photo-1591073113125-e46713c829ed?w=400&h=300&fit=crop",
-                amazonLink: "https://www.amazon.com/s?k=strabismus+glasses",
-                badge: { el: "Ιατρικά", en: "Medical" },
-                desc: {
-                    el: "Ειδικά σχεδιασμένα για άτομα με στραβισμό. Συμβουλευτείτε οπτικό.",
-                    en: "Specially designed for people with strabismus. Consult an optician."
-                },
-                moreInfo: {
-                    el: "Τα πρισματικά γυαλιά χρησιμοποιούν ειδικούς φακούς που αλλάζουν την κατεύθυνση του φωτός που μπαίνει στο μάτι. Βοηθούν στη διόρθωση του στραβισμού (αλλοιθώρισμα) και της διπλής όρασης. Πρέπει να συνταγογραφούνται από οφθαλμίατρο.",
-                    en: "Prism glasses use special lenses that change the direction of light entering the eye. They help correct strabismus (crossed eyes) and double vision. Must be prescribed by an ophthalmologist."
-                }
-            }
+            { id: 0, title: "Polarized Aviator", price: "€89", img: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400&h=300&fit=crop", amazonLink: "https://www.amazon.com/s?k=polarized+sunglasses", badge: { el: "Best Seller", en: "Best Seller" }, desc: { el: "Φακοί πολωτικοί, 100% UV προστασία, ιδανικοί για φωτοευαισθησία.", en: "Polarized lenses, 100% UV protection, ideal for photosensitivity." }, moreInfo: { el: "Οι πολωτικοί φακοί μειώνουν την αντανάκλαση από επιφάνειες όπως νερό, χιόνι και δρόμοι. Είναι ιδανικοί για οδήγηση και υπαίθριες δραστηριότητες. Προσφέρουν 100% UV προστασία και βελτιώνουν την αντίθεση χρωμάτων.", en: "Polarized lenses reduce glare from surfaces like water, snow, and roads. They are ideal for driving and outdoor activities. They offer 100% UV protection and enhance color contrast." } },
+            { id: 1, title: "Wrap Around Sport", price: "€59", img: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=300&fit=crop", amazonLink: "https://www.amazon.com/s?k=wrap+around+sunglasses", badge: { el: "Sport", en: "Sport" }, desc: { el: "Πλήρης προστασία από πλάγιο φως, κατάλληλα για έντονη δραστηριότητα.", en: "Full protection from peripheral light, suitable for intense activities." }, moreInfo: { el: "Τα wrap-around γυαλιά εφαρμόζουν στενά στο πρόσωπο και προστατεύουν από το φως που μπαίνει από τα πλάγια. Είναι ιδανικά για σπορ, ποδηλασία και δραστηριότητες σε έντονο ήλιο. Συχνά έχουν αντιθαμβωτική επικάλυψη.", en: "Wrap-around glasses fit closely to the face and block light from the sides. Ideal for sports, cycling, and activities in bright sun. Often have anti-fog coating." } },
+            { id: 2, title: "Prescription Clip-on", price: "€129", img: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=400&h=300&fit=crop", amazonLink: "https://www.amazon.com/s?k=prescription+sunglasses", badge: { el: "Οπτική", en: "Optical" }, desc: { el: "Για όσους φορούν ήδη διορθωτικά γυαλιά. Μαγνητικό κλιπ.", en: "For those who already wear prescription glasses. Magnetic clip-on." }, moreInfo: { el: "Τα clip-on γυαλιά ηλίου προσαρτώνται μαγνητικά πάνω στα κανονικά σας διορθωτικά γυαλιά. Είναι μια οικονομική λύση για όσους δεν θέλουν να αγοράσουν ξεχωριστά γυαλιά ηλίου με συνταγή. Διατίθενται σε διάφορα σχήματα.", en: "Clip-on sunglasses attach magnetically to your regular prescription glasses. They are an economical solution for those who don't want to buy separate prescription sunglasses. Available in various shapes." } },
+            { id: 3, title: "Blue Blocker", price: "€79", img: "https://images.unsplash.com/photo-1577803645770-f5f2b2d50f9e?w=400&h=300&fit=crop", amazonLink: "https://www.amazon.com/s?k=blue+blocking+sunglasses", badge: { el: "Ψηφιακή άνεση", en: "Digital Comfort" }, desc: { el: "Μείωση της αντανάκλασης και του μπλε φωτός, ιδανικά για οθόνες.", en: "Reduces glare and blue light, ideal for screens." }, moreInfo: { el: "Οι φακοί blue blocker φιλτράρουν το μπλε φως που εκπέμπουν οι οθόνες (υπολογιστές, κινητά, tablet). Μειώνουν την καταπόνηση των ματιών και βελτιώνουν την ποιότητα ύπνου. Ιδανικοί για άτομα που περνούν πολλές ώρες μπροστά σε οθόνες.", en: "Blue blocker lenses filter blue light emitted by screens (computers, phones, tablets). They reduce eye strain and improve sleep quality. Ideal for people who spend many hours in front of screens." } },
+            { id: 4, title: "Photochromic", price: "€149", img: "https://images.unsplash.com/photo-1516685018646-549d52c4a3b4?w=400&h=300&fit=crop", amazonLink: "https://www.amazon.com/s?k=photochromic+sunglasses", badge: { el: "Έξυπνα", en: "Smart" }, desc: { el: "Προσαρμόζονται αυτόματα στο φως. Ιδανικά για μεταβαλλόμενες συνθήκες.", en: "Automatically adapt to light. Ideal for changing conditions." }, moreInfo: { el: "Οι φωτοχρωμικοί φακοί σκουραίνουν αυτόματα όταν εκτίθενται στο ηλιακό φως και ανοίγουν σε εσωτερικούς χώρους. Προσφέρουν συνεχή προστασία UV και άνεση χωρίς να χρειάζεται να αλλάζετε γυαλιά. Ιδανικοί για άτομα που μετακινούνται συχνά μεταξύ εσωτερικού και εξωτερικού.", en: "Photochromic lenses darken automatically when exposed to sunlight and clear indoors. They offer continuous UV protection and convenience without switching glasses. Ideal for people who frequently move between indoors and outdoors." } },
+            { id: 5, title: "Prism Glasses", price: "Από €199", img: "https://images.unsplash.com/photo-1591073113125-e46713c829ed?w=400&h=300&fit=crop", amazonLink: "https://www.amazon.com/s?k=strabismus+glasses", badge: { el: "Ιατρικά", en: "Medical" }, desc: { el: "Ειδικά σχεδιασμένα για άτομα με στραβισμό. Συμβουλευτείτε οπτικό.", en: "Specially designed for people with strabismus. Consult an optician." }, moreInfo: { el: "Τα πρισματικά γυαλιά χρησιμοποιούν ειδικούς φακούς που αλλάζουν την κατεύθυνση του φωτός που μπαίνει στο μάτι. Βοηθούν στη διόρθωση του στραβισμού (αλλοιθώρισμα) και της διπλής όρασης. Πρέπει να συνταγογραφούνται από οφθαλμίατρο.", en: "Prism glasses use special lenses that change the direction of light entering the eye. They help correct strabismus (crossed eyes) and double vision. Must be prescribed by an ophthalmologist." } }
         ];
 
-        // Δεδομένα για το modal τύπων (λίστα)
         const typesData = [
             { term: { el: "Polarized (Πολωτικά)", en: "Polarized" }, desc: { el: "Μειώνουν την αντανάκλαση, ιδανικά για οδήγηση και έντονο φως.", en: "Reduce glare, ideal for driving and bright light." } },
             { term: { el: "Wrap-around", en: "Wrap-around" }, desc: { el: "Προστατεύουν από το πλάγιο φως, κατάλληλα για σπορ.", en: "Protect from side light, suitable for sports." } },
@@ -398,68 +143,39 @@
             { term: { el: "Prism (Πρισματικά)", en: "Prism" }, desc: { el: "Βοηθούν στη διόρθωση στραβισμού.", en: "Help correct strabismus." } }
         ];
 
-        // Στατικά κείμενα
         const translations = {
-            typesBtn: {
-                el: "👓 Τύποι Γυαλιών",
-                en: "👓 Glasses Types"
-            },
-            subhead: {
-                el: "Επιλεγμένα για άτομα με ευαισθησία στο φως και στραβισμό",
-                en: "Selected for people with light sensitivity and strabismus"
-            },
-            footerNote: {
-                el: "* Τα links οδηγούν σε ενδεικτικές αναζητήσεις. Πάντα να συμβουλεύεστε ειδικό.",
-                en: "* Links lead to indicative searches. Always consult a specialist."
-            },
-            typesModalTitle: {
-                el: "Τύποι Γυαλιών",
-                en: "Glasses Types"
-            },
-            closeBtn: {
-                el: "Κλείσιμο",
-                en: "Close"
-            },
-            moreInfoBtn: {
-                el: "More Info",
-                en: "More Info"
-            }
+            typesBtn: { el: "👓 Τύποι Γυαλιών", en: "👓 Glasses Types" },
+            subhead: { el: "Επιλεγμένα για άτομα με ευαισθησία στο φως και στραβισμό", en: "Selected for people with light sensitivity and strabismus" },
+            footerNote: { el: "* Τα links οδηγούν σε ενδεικτικές αναζητήσεις. Πάντα να συμβουλεύεστε ειδικό.", en: "* Links lead to indicative searches. Always consult a specialist." },
+            typesModalTitle: { el: "Τύποι Γυαλιών", en: "Glasses Types" },
+            closeBtn: { el: "Κλείσιμο", en: "Close" },
+            moreInfoBtn: { el: "More Info", en: "More Info" }
         };
 
-        let currentLang = 'el'; // αρχική γλώσσα
+        let currentLang = 'el';
+        window.closeModal = (modalId) => document.getElementById(modalId).style.display = 'none';
 
-        // Συνάρτηση για κλείσιμο modal
-        window.closeModal = function(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-        };
-
-        // Άνοιγμα modal more info - ΔΙΟΡΘΩΜΕΝΗ ΕΚΔΟΣΗ
-        function openInfoModal(title, text) {
-            if (currentLang === 'en') {
-                // Βρες την κάρτα με αυτόν τον τίτλο και πάρε την αγγλική περιγραφή
-                const card = cardData.find(c => c.title === title);
-                if (card) {
-                    document.getElementById('infoModalTitle').innerText = title;
-                    document.getElementById('infoModalText').innerText = card.moreInfo.en;
-                } else {
-                    // Fallback στο κανονικό κείμενο αν δεν βρεθεί
-                    document.getElementById('infoModalTitle').innerText = title;
-                    document.getElementById('infoModalText').innerText = text;
-                }
-            } else {
-                document.getElementById('infoModalTitle').innerText = title;
-                document.getElementById('infoModalText').innerText = text;
-            }
-            document.getElementById('infoModal').style.display = 'flex';
+        function renderGrid(lang) {
+            const grid = document.getElementById('gridContainer');
+            grid.innerHTML = '';
+            cardData.forEach((card) => {
+                const cardDiv = document.createElement('div');
+                cardDiv.className = 'card';
+                cardDiv.style.animationDelay = `${0.1 + card.id * 0.1}s`;
+                cardDiv.innerHTML = `
+                    <img class="card-img" src="${card.img}" alt="${card.title}">
+                    <div class="card-title"><span>${card.title}</span><span class="card-price">${card.price}</span></div>
+                    <div class="card-desc">${card.desc[lang]}</div>
+                    <span class="card-badge">${card.badge[lang]}</span>
+                    <div class="button-group">
+                        <a href="${card.amazonLink}" target="_blank" class="amazon-btn">Amazon</a>
+                        <button class="more-info-btn" data-id="${card.id}">${translations.moreInfoBtn[lang]}</button>
+                    </div>
+                `;
+                grid.appendChild(cardDiv);
+            });
         }
 
-        // Άνοιγμα modal τύπων
-        function openTypesModal() {
-            renderTypesModalContent(currentLang);
-            document.getElementById('typesModal').style.display = 'flex';
-        }
-
-        // Γέμισμα modal τύπων ανάλογα με γλώσσα
         function renderTypesModalContent(lang) {
             const list = document.getElementById('typesList');
             list.innerHTML = '';
@@ -470,74 +186,56 @@
                 list.appendChild(li);
             });
             document.getElementById('typesModalTitle').innerText = translations.typesModalTitle[lang];
-            // Αλλάζουμε και το κείμενο του κουμπιού κλεισίματος
             const closeBtn = document.querySelector('#typesModal .close-modal');
             if (closeBtn) closeBtn.innerText = translations.closeBtn[lang];
         }
 
-        // Συνάρτηση για render των καρτών
-        function renderGrid(lang) {
-            const grid = document.getElementById('gridContainer');
-            grid.innerHTML = '';
-            cardData.forEach((card, index) => {
-                const cardDiv = document.createElement('div');
-                cardDiv.className = 'card';
-                cardDiv.style.animationDelay = `${0.1 + index * 0.1}s`;
-                cardDiv.innerHTML = `
-                    <img class="card-img" src="${card.img}" alt="${card.title}">
-                    <div class="card-title">
-                        <span>${card.title}</span>
-                        <span class="card-price">${card.price}</span>
-                    </div>
-                    <div class="card-desc">${card.desc[lang]}</div>
-                    <span class="card-badge">${card.badge[lang]}</span>
-                    <div class="button-group">
-                        <a href="${card.amazonLink}" target="_blank" class="amazon-btn">Amazon</a>
-                        <button class="more-info-btn" onclick='openInfoModal("${card.title}", \`${card.moreInfo[lang]}\`)'>${translations.moreInfoBtn[lang]}</button>
-                    </div>
-                `;
-                grid.appendChild(cardDiv);
-            });
-        }
-
-        // Ενημέρωση όλων των στατικών κειμένων
         function updateStaticTexts(lang) {
             document.getElementById('typesBtn').innerText = translations.typesBtn[lang];
             document.getElementById('subhead').innerText = translations.subhead[lang];
             document.getElementById('footerNote').innerText = translations.footerNote[lang];
-            // Κουμπί γλώσσας
             document.getElementById('langToggle').innerText = lang === 'el' ? 'EN' : 'ΕΛ';
         }
 
-        // Κεντρική συνάρτηση αλλαγής γλώσσας
         function switchLanguage() {
             currentLang = currentLang === 'el' ? 'en' : 'el';
             updateStaticTexts(currentLang);
             renderGrid(currentLang);
             renderTypesModalContent(currentLang);
-            // Κλείνουμε τυχόν ανοιχτά modal
             closeModal('typesModal');
             closeModal('infoModal');
         }
 
-        // Αρχικοποίηση
+        // Event delegation για More Info buttons
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('more-info-btn')) {
+                const id = e.target.getAttribute('data-id');
+                if (id !== null) {
+                    const card = cardData.find(c => c.id == id);
+                    if (card) {
+                        document.getElementById('infoModalTitle').innerText = card.title;
+                        document.getElementById('infoModalText').innerText = card.moreInfo[currentLang];
+                        document.getElementById('infoModal').style.display = 'flex';
+                    }
+                }
+            }
+        });
+
         document.addEventListener('DOMContentLoaded', () => {
             renderGrid('el');
             renderTypesModalContent('el');
-            document.getElementById('typesBtn').addEventListener('click', openTypesModal);
+            document.getElementById('typesBtn').addEventListener('click', () => {
+                renderTypesModalContent(currentLang);
+                document.getElementById('typesModal').style.display = 'flex';
+            });
             document.getElementById('langToggle').addEventListener('click', switchLanguage);
         });
 
-        // Κλείσιμο modal αν κάνει κλικ έξω
-        window.onclick = function(event) {
+        window.onclick = (event) => {
             const typesModal = document.getElementById('typesModal');
             const infoModal = document.getElementById('infoModal');
-            if (event.target == typesModal) {
-                typesModal.style.display = 'none';
-            }
-            if (event.target == infoModal) {
-                infoModal.style.display = 'none';
-            }
+            if (event.target == typesModal) typesModal.style.display = 'none';
+            if (event.target == infoModal) infoModal.style.display = 'none';
         };
     </script>
 </body>
